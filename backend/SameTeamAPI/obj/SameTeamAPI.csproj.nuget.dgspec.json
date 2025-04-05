@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\behap\\OneDrive\\Desktop\\SameTeamProject\\SameTeam_ReactNodejs\\backend\\SameTeamAPI\\SameTeamAPI.csproj": {}
+    "C:\\Users\\krish\\OneDrive\\Documents\\github\\SAMETEAM_FULLSTACK\\backend\\SameTeamAPI\\SameTeamAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\behap\\OneDrive\\Desktop\\SameTeamProject\\SameTeam_ReactNodejs\\backend\\SameTeamAPI\\SameTeamAPI.csproj": {
+    "C:\\Users\\krish\\OneDrive\\Documents\\github\\SAMETEAM_FULLSTACK\\backend\\SameTeamAPI\\SameTeamAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\behap\\OneDrive\\Desktop\\SameTeamProject\\SameTeam_ReactNodejs\\backend\\SameTeamAPI\\SameTeamAPI.csproj",
+        "projectUniqueName": "C:\\Users\\krish\\OneDrive\\Documents\\github\\SAMETEAM_FULLSTACK\\backend\\SameTeamAPI\\SameTeamAPI.csproj",
         "projectName": "SameTeamAPI",
-        "projectPath": "C:\\Users\\behap\\OneDrive\\Desktop\\SameTeamProject\\SameTeam_ReactNodejs\\backend\\SameTeamAPI\\SameTeamAPI.csproj",
-        "packagesPath": "C:\\Users\\behap\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\behap\\OneDrive\\Desktop\\SameTeamProject\\SameTeam_ReactNodejs\\backend\\SameTeamAPI\\obj\\",
+        "projectPath": "C:\\Users\\krish\\OneDrive\\Documents\\github\\SAMETEAM_FULLSTACK\\backend\\SameTeamAPI\\SameTeamAPI.csproj",
+        "packagesPath": "C:\\Users\\krish\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\krish\\OneDrive\\Documents\\github\\SAMETEAM_FULLSTACK\\backend\\SameTeamAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\behap\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\krish\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -95,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.405/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.407/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
