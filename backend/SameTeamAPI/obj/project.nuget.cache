@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "h+ZJMX/aEq0=",
+  "dgSpecHash": "qpkExWyUicg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\krish\\react\\SameTeamAppFull-master\\BackEnd\\SameTeamAPI\\SameTeamAPI.csproj",
+  "projectFilePath": "C:\\Users\\krish\\OneDrive\\Documents\\github\\SAMETEAM_FULLSTACK\\BackEnd\\SameTeamAPI\\SameTeamAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\krish\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\krish\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

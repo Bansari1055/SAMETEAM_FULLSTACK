@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\krish\\react\\SameTeamAppFull-master\\BackEnd\\SameTeamAPI\\SameTeamAPI.csproj": {}
+    "C:\\Users\\krish\\OneDrive\\Documents\\github\\SAMETEAM_FULLSTACK\\BackEnd\\SameTeamAPI\\SameTeamAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\krish\\react\\SameTeamAppFull-master\\BackEnd\\SameTeamAPI\\SameTeamAPI.csproj": {
+    "C:\\Users\\krish\\OneDrive\\Documents\\github\\SAMETEAM_FULLSTACK\\BackEnd\\SameTeamAPI\\SameTeamAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\krish\\react\\SameTeamAppFull-master\\BackEnd\\SameTeamAPI\\SameTeamAPI.csproj",
+        "projectUniqueName": "C:\\Users\\krish\\OneDrive\\Documents\\github\\SAMETEAM_FULLSTACK\\BackEnd\\SameTeamAPI\\SameTeamAPI.csproj",
         "projectName": "SameTeamAPI",
-        "projectPath": "C:\\Users\\krish\\react\\SameTeamAppFull-master\\BackEnd\\SameTeamAPI\\SameTeamAPI.csproj",
+        "projectPath": "C:\\Users\\krish\\OneDrive\\Documents\\github\\SAMETEAM_FULLSTACK\\BackEnd\\SameTeamAPI\\SameTeamAPI.csproj",
         "packagesPath": "C:\\Users\\krish\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\krish\\react\\SameTeamAppFull-master\\BackEnd\\SameTeamAPI\\obj\\",
+        "outputPath": "C:\\Users\\krish\\OneDrive\\Documents\\github\\SAMETEAM_FULLSTACK\\BackEnd\\SameTeamAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\krish\\AppData\\Roaming\\NuGet\\NuGet.Config"
