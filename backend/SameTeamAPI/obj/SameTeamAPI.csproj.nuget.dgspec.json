@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\krish\\OneDrive\\Documents\\github\\SAMETEAM_FULLSTACK\\backend\\SameTeamAPI\\SameTeamAPI.csproj": {}
+    "C:\\Users\\krish\\react\\SameTeamAppFull-master\\BackEnd\\SameTeamAPI\\SameTeamAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\krish\\OneDrive\\Documents\\github\\SAMETEAM_FULLSTACK\\backend\\SameTeamAPI\\SameTeamAPI.csproj": {
+    "C:\\Users\\krish\\react\\SameTeamAppFull-master\\BackEnd\\SameTeamAPI\\SameTeamAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\krish\\OneDrive\\Documents\\github\\SAMETEAM_FULLSTACK\\backend\\SameTeamAPI\\SameTeamAPI.csproj",
+        "projectUniqueName": "C:\\Users\\krish\\react\\SameTeamAppFull-master\\BackEnd\\SameTeamAPI\\SameTeamAPI.csproj",
         "projectName": "SameTeamAPI",
-        "projectPath": "C:\\Users\\krish\\OneDrive\\Documents\\github\\SAMETEAM_FULLSTACK\\backend\\SameTeamAPI\\SameTeamAPI.csproj",
+        "projectPath": "C:\\Users\\krish\\react\\SameTeamAppFull-master\\BackEnd\\SameTeamAPI\\SameTeamAPI.csproj",
         "packagesPath": "C:\\Users\\krish\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\krish\\OneDrive\\Documents\\github\\SAMETEAM_FULLSTACK\\backend\\SameTeamAPI\\obj\\",
+        "outputPath": "C:\\Users\\krish\\react\\SameTeamAppFull-master\\BackEnd\\SameTeamAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\krish\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -43,37 +43,27 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "BCrypt.Net-Next": {
-              "target": "Package",
-              "version": "[4.0.3, )"
-            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[8.0.0, )"
             },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
-              "version": "[8.0.4, )"
+              "version": "[8.0.14, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.1, )"
+              "version": "[9.0.3, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[9.0.1, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[9.0.1, )"
+              "version": "[9.0.3, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.0.7, )"
+              "version": "[8.1.0, )"
             }
           },
           "imports": [

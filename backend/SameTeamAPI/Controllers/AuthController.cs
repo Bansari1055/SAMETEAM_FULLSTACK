@@ -1,87 +1,104 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using SameTeamAPI.Data;
-using SameTeamAPI.Models;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using SameTeamAPI.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace SameTeamAPI.Controllers
 {
-    [Route("api/auth")]
     [ApiController]
+    [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
         private readonly SameTeamDbContext _context;
-        private readonly IConfiguration _config;
+        private readonly IConfiguration _configuration;
 
-        public AuthController(SameTeamDbContext context, IConfiguration config)
+        public AuthController(SameTeamDbContext context, IConfiguration configuration)
         {
             _context = context;
-            _config = config;
+            _configuration = configuration;
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] LoginModel model)
+        public IActionResult Login([FromBody] LoginModel login)
         {
-            var user = await _context.AppUsers
-                .FirstOrDefaultAsync(u => u.Email == model.Email && u.Password == model.Password);
+            var user = _context.Users
+                .FirstOrDefault(u => u.Email.ToLower() == login.Email.ToLower());
 
             if (user == null)
-            {
-                return Unauthorized(new { message = "Invalid credentials" });
-            }
+                return Unauthorized("User not found");
+
+            var passwordHasher = new PasswordHasher<User>();
+            var passwordVerificationResult = passwordHasher.VerifyHashedPassword(user, user.PasswordHash, login.Password);
+
+            if (passwordVerificationResult != PasswordVerificationResult.Success)
+                return Unauthorized("Invalid password");
 
             var token = GenerateJwtToken(user);
-            return Ok(new { message = "Login successful", token, userID = user.UserID, role = user.RoleID });
+
+            return Ok(new
+            {
+                token,
+                user = new
+                {
+                    user.UserId,
+                    user.Username,
+                    user.Email,
+                    user.Role,
+                    user.Points,
+                    user.TeamId
+                }
+            });
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] RegisterModel model)
+        public IActionResult Register([FromBody] RegisterModel model)
         {
-            var existingUser = await _context.AppUsers
-                .FirstOrDefaultAsync(u => u.Email == model.Email);
-            
-            if (existingUser != null)
+            if (_context.Users.Any(u => u.Email.ToLower() == model.Email.ToLower()))
             {
-                return BadRequest(new { message = "Email already in use" });
+                return Conflict("Email already exists.");
             }
 
-            var user = new AppUser
+            var passwordHasher = new PasswordHasher<User>();
+            var hashedPassword = passwordHasher.HashPassword(null, model.Password);
+
+            var user = new User
             {
-                FirstName = model.FirstName,
-                LastName = model.LastName,
-                Email = model.Email,
-                Password = model.Password, 
-                RoleID = 1 
+                Username = model.Username,
+                Email = model.Email.ToLower(),
+                PasswordHash = hashedPassword,
+                Role = model.Role ?? "User",
+                Points = 0,
+                TotalPoints = 0,
+                TeamId = null
             };
 
-            _context.AppUsers.Add(user);
-            await _context.SaveChangesAsync();
+            _context.Users.Add(user);
+            _context.SaveChanges();
 
-            return Ok(new { message = "User registered successfully" });
+            return Ok("User registered successfully!");
         }
 
-        private string GenerateJwtToken(AppUser user)
+        private string GenerateJwtToken(User user)
         {
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
-            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var claims = new[]
             {
-                new Claim(JwtRegisteredClaimNames.Sub, user.Email),
-                new Claim("userID", user.UserID.ToString()),
-                new Claim("role", user.RoleID.ToString())
+                new Claim(JwtRegisteredClaimNames.Sub, user.Email ?? ""),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim("UserId", user.UserId.ToString())
             };
 
             var token = new JwtSecurityToken(
-                _config["Jwt:Issuer"],
-                _config["Jwt:Issuer"],
-                claims,
-                expires: DateTime.UtcNow.AddHours(5),
-                signingCredentials: credentials
-            );
+                issuer: _configuration["Jwt:Issuer"],
+                audience: _configuration["Jwt:Audience"],
+                claims: claims,
+                expires: DateTime.Now.AddHours(2),
+                signingCredentials: creds);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
@@ -95,9 +112,9 @@ namespace SameTeamAPI.Controllers
 
     public class RegisterModel
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string Username { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public string? Role { get; set; } // optional
     }
 }

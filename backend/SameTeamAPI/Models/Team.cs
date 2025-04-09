@@ -1,17 +1,13 @@
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.Collections.Generic;
 
-namespace SameTeamAPI.Models
+namespace SameTeamAPI.Models;
+
+public partial class Team
 {
-    public class Team
-    {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int TeamID { get; set; }
+    public int TeamId { get; set; }
 
-        [Required]
-        public string TeamName { get; set; }
+    public string TeamName { get; set; } = null!;
 
-        public ICollection<AppUser>? AppUsers { get; set; }
-    }
+    public virtual ICollection<User> Users { get; set; } = new List<User>();
 }

@@ -1,32 +1,23 @@
-using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.Collections.Generic;
 
-namespace SameTeamAPI.Models
+namespace SameTeamAPI.Models;
+
+public partial class Chore
 {
-    public class Chore
-    {
-        [Key]
-        public int ChoreID { get; set; }
+    public int ChoreId { get; set; }
 
-        [Required]
-        public string ChoreName { get; set; }
+    public string ChoreText { get; set; } = null!;
 
-        public string Description { get; set; }
+    public int Points { get; set; }
 
-        [Required]
-        public DateTime DueDate { get; set; }
+    public int? AssignedTo { get; set; }
 
-        [Required]
-        public int AssignedToUserID { get; set; }
+    public DateOnly DateAssigned { get; set; }
 
-        public bool IsCompleted { get; set; }
+    public bool? Completed { get; set; }
 
-        public string Message { get; set; } // Optional message field
+    public virtual User? AssignedToNavigation { get; set; }
 
-        // Navigation property (Not required in the request body)
-        [ForeignKey("AssignedToUserID")]
-        [NotMapped] // Ensures it's not required in the request body
-        public AppUser? AssignedToUser { get; set; }
-    }
+    public virtual ICollection<CompletedChore> CompletedChores { get; set; } = new List<CompletedChore>();
 }
